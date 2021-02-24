@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primaryColor: jm_appTheme,
           splashColor: jm_appTheme,
-
           // primaryTextTheme: TextTheme(headline4: jm_text_apptheme_style15),
           // dialogTheme: DialogTheme(
           //     contentTextStyle: jm_text_apptheme_style15,

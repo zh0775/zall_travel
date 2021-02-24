@@ -292,6 +292,8 @@ class _HomeState extends State<Home> {
                             userHead: data['userHead'],
                             userName: data['userName'],
                             likeCount: data['likeCount'],
+                            dataList: dataList,
+                            dataIndex: index,
                           );
                           // index.isEven
 
