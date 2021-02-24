@@ -24,7 +24,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
     return Scaffold(
       body: IndexedStack(
         index: _tabbarIndex,
-        children: [Home(), Destination(), Journey(), Message(), Mine()],
+        children: [Home(), Destination(), Message(), Journey(), Mine()],
       ),
       bottomNavigationBar: JMTabBar((index) {
         // indexClick();

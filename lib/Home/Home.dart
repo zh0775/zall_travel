@@ -356,8 +356,8 @@ class _HomeState extends State<Home> {
         children: [
           Image.asset(
             'assets/images/home/$image.png',
-            height: widthScale * 8,
-            width: widthScale * 8,
+            height: widthScale * 7,
+            width: widthScale * 7,
           ),
           SizedBox(
             height: 5,

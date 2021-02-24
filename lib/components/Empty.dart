@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zall_travel/const/Default.dart';
 import 'package:zall_travel/utils/sizeConfig.dart';
 
 class Empty extends StatefulWidget {
@@ -13,11 +14,22 @@ class _EmptyState extends State<Empty> {
     SizeConfig().init(context);
     widthScale = SizeConfig.blockSizeHorizontal;
     return Container(
-      alignment: Alignment.center,
-      child: Image.asset(
-        'assets/images/home/empty.png',
-        height: widthScale * 50,
-      ),
-    );
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/images/home/empty.png',
+              height: widthScale * 50,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Text(
+              '正在建设...',
+              style: jm_text_gray_style18,
+            )
+          ],
+        ));
   }
 }
