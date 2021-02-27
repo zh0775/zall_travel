@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zall_travel/Home/components/HomeCell.dart';
 import 'package:zall_travel/Home/components/HomeTopSearch.dart';
+import 'package:zall_travel/Home/components/home_first_view.dart';
 import 'package:zall_travel/const/Default.dart';
 import 'package:zall_travel/utils/sizeConfig.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -30,98 +31,112 @@ class _HomeState extends State<Home> {
       'title': '曹禺文化旅游路线',
       'userName': '释迦马天尼',
       'userHead': 'userHead.jpeg',
-      'likeCount': 24
+      'likeCount': 24,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'scenic1.jpeg',
       'title': '茶园',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 90
+      'likeCount': 90,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'tiantangzhai.jpg',
       'title': '湖北天堂寨',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 13
+      'likeCount': 13,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'mihouleyuan.jpeg',
       'title': '神农架猕猴乐园',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 22
+      'likeCount': 22,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'muqiaoxi.jpeg',
       'title': '长阳木桥溪生态旅游度假区',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 55
+      'likeCount': 55,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'haosengou.jpeg',
       'title': '好森沟国家森林公园',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 125
+      'likeCount': 125,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'huashijie.jpeg',
       'title': '花世界',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 98
+      'likeCount': 98,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'shiliuhongcun.jpeg',
       'title': '石榴红乡村休闲旅游项目',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 13
+      'likeCount': 13,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'huangjishan.jpeg',
       'title': '黄荆山文化旅游生态公园',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 546
+      'likeCount': 546,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'fanwanhu.jpeg',
       'title': '返湾湖国家湿地公园',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 84
+      'likeCount': 84,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'taiyangshan.jpeg',
       'title': '太阳山景区',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 23
+      'likeCount': 23,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'nvwashan.jpg',
       'title': '女娲山风景区',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 52
+      'likeCount': 52,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'mulan.jpeg',
       'title': '木兰国际旅游度假区',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 3
+      'likeCount': 3,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'huanghualao.jpg',
       'title': '黄花涝水岸古镇',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 1
+      'likeCount': 1,
+      'video': 'Butterfly-209.mp4',
     },
   ];
 
@@ -146,6 +161,14 @@ class _HomeState extends State<Home> {
   }
 
   Widget homeBody() {
+    return PageView(
+      scrollDirection: Axis.vertical,
+      // physics: NeverScrollableScrollPhysics(),
+      children: [HomeFirstView(), secondView()],
+    );
+  }
+
+  Widget secondView() {
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: Scaffold(

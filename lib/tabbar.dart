@@ -60,11 +60,11 @@ class _JMTabBarState extends State<JMTabBar> {
         width: SizeConfig.screenWidth - margin * 2,
         height: 55,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.white60,
           borderRadius: BorderRadius.circular(55 / 2),
-          boxShadow: const [
-            BoxShadow(blurRadius: 5, color: jm_text_gray),
-          ],
+          // boxShadow: const [
+          //   BoxShadow(blurRadius: 5, color: jm_text_gray),
+          // ],
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: widthScale * 4),
