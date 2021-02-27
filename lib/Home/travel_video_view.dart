@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:zall_travel/Home/components/custom_travel_video.dart';
 import 'package:zall_travel/Home/components/travel_detail.dart';
 import 'package:zall_travel/Home/components/travel_info.dart';
+import 'package:zall_travel/components/CustomButton.dart';
 import 'package:zall_travel/components/NoneV.dart';
 import 'package:zall_travel/const/Default.dart';
 import 'package:zall_travel/utils/sizeConfig.dart';
@@ -22,18 +23,20 @@ class TravelVideoView extends StatefulWidget {
 class _TravelVideoViewState extends State<TravelVideoView> {
   // String videoPath = 'snj.mp4';
   PageController _pageController;
-  String videoPath = 'Butterfly-209.mp4';
+  // String videoPath = 'Butterfly-209.mp4';
   var file;
   double widthScale;
   double margin;
   double selfWidth;
   int currentIndex;
   bool openVolume = true;
+  Map selfData;
   @override
   void initState() {
+    selfData = widget.dataList[widget.dataIndex];
     currentIndex = widget.dataIndex;
     _pageController = PageController(initialPage: currentIndex);
-    _saveAssetVideoToFile(videoPath).then((value) {
+    _saveAssetVideoToFile(selfData['video']).then((value) {
       setState(() {});
     });
 
@@ -54,7 +57,7 @@ class _TravelVideoViewState extends State<TravelVideoView> {
     Map data = widget.dataList[currentIndex];
     SizeConfig().init(context);
     widthScale = SizeConfig.blockSizeHorizontal;
-    margin = widthScale * 3;
+    margin = widthScale * 4;
     selfWidth = SizeConfig.screenWidth - margin * 2;
     return Scaffold(
       body: Stack(
@@ -101,90 +104,81 @@ class _TravelVideoViewState extends State<TravelVideoView> {
                                         children: [
                                           Row(
                                             children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(
-                                                        widthScale * 5),
-                                                child: SizedBox(
-                                                  width: widthScale * 10,
-                                                  height: widthScale * 10,
-                                                  child: Image.asset(
-                                                      'assets/images/home/${data['userHead']}'),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: widthScale * 3,
-                                              ),
-                                              Text(
-                                                data['userName'] ?? '',
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Colors.white),
-                                              ),
-                                              SizedBox(
-                                                width: widthScale * 3,
-                                              ),
-                                              RawMaterialButton(
-                                                onPressed: () {
-                                                  if (data['follow'] == null) {
-                                                    data['follow'] = false;
-                                                  }
+                                              tagView(
+                                                  title: data['title'] ?? '')
+                                              // SizedBox(
+                                              //   width: widthScale * 3,
+                                              // ),
+                                              // Text(
+                                              //   data['userName'] ?? '',
+                                              //   style: TextStyle(
+                                              //       fontSize: 15,
+                                              //       color: Colors.white),
+                                              // ),
+                                              // SizedBox(
+                                              //   width: widthScale * 3,
+                                              // ),
+                                              // RawMaterialButton(
+                                              //   onPressed: () {
+                                              //     if (data['follow'] == null) {
+                                              //       data['follow'] = false;
+                                              //     }
 
-                                                  setState(() {
-                                                    data['follow'] =
-                                                        !data['follow'];
-                                                  });
-                                                },
-                                                fillColor: data['follow'] !=
-                                                            null &&
-                                                        data['follow'] == true
-                                                    ? Colors.black26
-                                                    : Colors.yellow,
-                                                elevation: 0.1,
-                                                highlightElevation: 1.0,
-                                                materialTapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                                constraints: BoxConstraints(
-                                                    minHeight: widthScale * 6,
-                                                    minWidth: widthScale * 13),
-                                                splashColor: Colors.transparent,
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            widthScale * 4)),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    data['follow'] != null &&
-                                                            data['follow'] ==
-                                                                true
-                                                        ? NoneV()
-                                                        : Icon(
-                                                            Icons.add,
-                                                            size:
-                                                                widthScale * 3,
-                                                            color: Colors.black,
-                                                          ),
-                                                    Text(
-                                                      data['follow'] != null &&
-                                                              data['follow'] ==
-                                                                  true
-                                                          ? '已关注'
-                                                          : '关注',
-                                                      style: TextStyle(
-                                                          fontSize: 12,
-                                                          color: data['follow'] !=
-                                                                      null &&
-                                                                  data['follow'] ==
-                                                                      true
-                                                              ? Colors.white
-                                                              : Colors.black),
-                                                    )
-                                                  ],
-                                                ),
-                                              )
+                                              //     setState(() {
+                                              //       data['follow'] =
+                                              //           !data['follow'];
+                                              //     });
+                                              //   },
+                                              //   fillColor: data['follow'] !=
+                                              //               null &&
+                                              //           data['follow'] == true
+                                              //       ? Colors.black26
+                                              //       : Colors.yellow,
+                                              //   elevation: 0.1,
+                                              //   highlightElevation: 1.0,
+                                              //   materialTapTargetSize:
+                                              //       MaterialTapTargetSize
+                                              //           .shrinkWrap,
+                                              //   constraints: BoxConstraints(
+                                              //       minHeight: widthScale * 6,
+                                              //       minWidth: widthScale * 13),
+                                              //   splashColor: Colors.transparent,
+                                              //   shape: RoundedRectangleBorder(
+                                              //       borderRadius:
+                                              //           BorderRadius.circular(
+                                              //               widthScale * 4)),
+                                              //   child: Row(
+                                              //     mainAxisAlignment:
+                                              //         MainAxisAlignment.center,
+                                              //     children: [
+                                              //       data['follow'] != null &&
+                                              //               data['follow'] ==
+                                              //                   true
+                                              //           ? NoneV()
+                                              //           : Icon(
+                                              //               Icons.add,
+                                              //               size:
+                                              //                   widthScale * 3,
+                                              //               color: Colors.black,
+                                              //             ),
+                                              //       Text(
+                                              //         data['follow'] != null &&
+                                              //                 data['follow'] ==
+                                              //                     true
+                                              //             ? '已关注'
+                                              //             : '关注',
+                                              //         style: TextStyle(
+                                              //             fontSize: 12,
+                                              //             color: data['follow'] !=
+                                              //                         null &&
+                                              //                     data['follow'] ==
+                                              //                         true
+                                              //                 ? Colors.white
+                                              //                 : Colors.black),
+                                              //       )
+                                              //     ],
+                                              //   ),
+                                              // )
                                             ],
                                           ),
                                           SizedBox(
@@ -194,7 +188,7 @@ class _TravelVideoViewState extends State<TravelVideoView> {
                                             width: widthScale * 65,
                                             child: Text(
                                               data['content'] ??
-                                                  '这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！这才是住在风景里，不想回去了！',
+                                                  '这才是住在风景里，不想回去了！',
                                               style: TextStyle(
                                                   fontSize: 14,
                                                   color: Colors.white),
@@ -215,21 +209,76 @@ class _TravelVideoViewState extends State<TravelVideoView> {
                                                   ),
                                                   context);
                                             },
-                                          )
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          tagView(
+                                              title: '找导游',
+                                              icons:
+                                                  Icons.person_search_rounded),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                         ],
                                       ),
                                       Column(
                                         children: [
-                                          rightButton(
-                                            icons: openVolume
-                                                ? Icons.volume_up
-                                                : Icons.volume_off,
-                                            title: '',
-                                            buttonClick: () {
-                                              setState(() {
-                                                openVolume = !openVolume;
-                                              });
-                                            },
+                                          // rightButton(
+                                          //   icons: openVolume
+                                          //       ? Icons.volume_up
+                                          //       : Icons.volume_off,
+                                          //   title: '',
+                                          //   buttonClick: () {
+                                          //     setState(() {
+                                          //       openVolume = !openVolume;
+                                          //     });
+                                          //   },
+                                          // ),
+                                          SizedBox(
+                                            child: Stack(
+                                              overflow: Overflow.visible,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          widthScale * 6),
+                                                  child: SizedBox(
+                                                    width: widthScale * 12,
+                                                    height: widthScale * 12,
+                                                    child: Image.asset(
+                                                        'assets/images/home/${data['userHead']}'),
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                    bottom: -widthScale * 2.5,
+                                                    left: widthScale * 12 / 2 -
+                                                        widthScale * 2.5,
+                                                    child: Container(
+                                                      width: widthScale * 5,
+                                                      height: widthScale * 5,
+                                                      alignment:
+                                                          Alignment.center,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    widthScale *
+                                                                        2.5),
+                                                      ),
+                                                    )),
+                                                Positioned(
+                                                    bottom: -widthScale * 3,
+                                                    left: widthScale * 12 / 2 -
+                                                        widthScale * 3,
+                                                    child: Icon(
+                                                      Icons.add_circle_rounded,
+                                                      size: widthScale * 6,
+                                                      color: Colors.red,
+                                                    ))
+                                              ],
+                                            ),
                                           ),
                                           SizedBox(
                                             height: 25,
@@ -255,7 +304,69 @@ class _TravelVideoViewState extends State<TravelVideoView> {
                                             height: 10,
                                           ),
                                           rightButton(
-                                              icons: Icons.reply, title: '分享')
+                                              icons: Icons.reply, title: '分享'),
+                                          SizedBox(
+                                            height: 20,
+                                          ),
+                                          CustomButton(
+                                            onPressed: () {
+                                              showModalBottomSheet(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return Container(
+                                                      height: 200,
+                                                      color: Colors.white,
+                                                      child: Column(
+                                                        children: [
+                                                          SizedBox(
+                                                            height: 10,
+                                                          ),
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              CustomButton(
+                                                                onPressed: () {
+                                                                  if (Navigator
+                                                                      .canPop(
+                                                                          context)) {
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                  }
+                                                                },
+                                                                width:
+                                                                    widthScale *
+                                                                        4,
+                                                                height:
+                                                                    widthScale *
+                                                                        4,
+                                                                child: Icon(
+                                                                  Icons
+                                                                      .close_rounded,
+                                                                  size:
+                                                                      widthScale *
+                                                                          5,
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                width: 10,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  });
+                                            },
+                                            child: Image.asset(
+                                              'assets/images/home/btn_travel_commodity.png',
+                                              width: widthScale * 12,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 20,
+                                          ),
                                         ],
                                       )
                                     ],
@@ -315,8 +426,35 @@ class _TravelVideoViewState extends State<TravelVideoView> {
     );
   }
 
+  Widget tagView({String title, IconData icons = Icons.location_on_rounded}) {
+    return CustomButton(
+        child: Container(
+      decoration: BoxDecoration(
+          color: Colors.black54, borderRadius: BorderRadius.circular(2)),
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(1, 2, 5, 2),
+        child: Row(
+          children: [
+            Icon(
+              icons,
+              size: widthScale * 4,
+              color: Color(0xff9cccf3),
+            ),
+            SizedBox(
+              width: widthScale * 0.5,
+            ),
+            Text(
+              title ?? '',
+              style: TextStyle(color: Color(0xff9cccf3), fontSize: 13),
+            )
+          ],
+        ),
+      ),
+    ));
+  }
+
   Future _saveAssetVideoToFile(String videoFileName) async {
-    var content = await rootBundle.load('assets/videos/$videoPath');
+    var content = await rootBundle.load('assets/videos/$videoFileName');
     final directory = await getApplicationDocumentsDirectory();
     file = File("${directory.path}/$videoFileName");
     file.writeAsBytesSync(content.buffer.asUint8List());
