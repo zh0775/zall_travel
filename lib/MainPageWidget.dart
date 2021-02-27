@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:zall_travel/Destination/Destination.dart';
 
 import 'package:zall_travel/Home/Home.dart';
+import 'package:zall_travel/Nearby/Nearby.dart';
 
 import 'package:zall_travel/Wallet/Wallet.dart';
 import 'package:zall_travel/tabbar.dart';
@@ -33,7 +35,7 @@ class _MainPageWidgetState extends State<MainPageWidget> {
               bottom: 0,
               child: IndexedStack(
                 index: _tabbarIndex,
-                children: [Home(), Wallet(), Message(), Mine()],
+                children: [Home(), Nearby(), Destination(), Message(), Mine()],
               )),
           Positioned(
             bottom: 20,

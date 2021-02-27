@@ -105,7 +105,14 @@ class _TravelVideoViewState extends State<TravelVideoView> {
                                           Row(
                                             children: [
                                               tagView(
-                                                  title: data['title'] ?? '')
+                                                  title: data['title'] ?? ''),
+                                              SizedBox(
+                                                width: widthScale * 2,
+                                              ),
+                                              tagView(
+                                                  title: '当地向导',
+                                                  icons: Icons
+                                                      .person_search_rounded),
                                               // SizedBox(
                                               //   width: widthScale * 3,
                                               // ),
@@ -213,10 +220,6 @@ class _TravelVideoViewState extends State<TravelVideoView> {
                                           SizedBox(
                                             height: 10,
                                           ),
-                                          tagView(
-                                              title: '找导游',
-                                              icons:
-                                                  Icons.person_search_rounded),
                                           SizedBox(
                                             height: 10,
                                           ),
@@ -432,7 +435,7 @@ class _TravelVideoViewState extends State<TravelVideoView> {
       decoration: BoxDecoration(
           color: Colors.black54, borderRadius: BorderRadius.circular(2)),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(1, 2, 5, 2),
+        padding: EdgeInsets.fromLTRB(3, 2, 5, 2),
         child: Row(
           children: [
             Icon(
