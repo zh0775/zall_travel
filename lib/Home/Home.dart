@@ -22,7 +22,8 @@ class _HomeState extends State<Home> {
       'title': '赤壁市杨洞楼',
       'userName': '我是FIORELADY',
       'userHead': 'userHead.jpeg',
-      'likeCount': 86
+      'likeCount': 86,
+      'video': 'Butterfly-209.mp4',
     },
     {
       'image': 'scenic3.jpeg',
@@ -274,10 +275,11 @@ class _HomeState extends State<Home> {
                     ),
                     Container(
                       width: selfWidth,
-                      height: 80 + 240 * 2 + 190 * 6.0,
+                      height: 80 + 240 * 2 + 190 * 6.0 + 75,
                       child: StaggeredGridView.extentBuilder(
                         physics: NeverScrollableScrollPhysics(),
                         // crossAxisCount: 4,
+                        // controller: ScrollController(initialScrollOffset: 75),
                         maxCrossAxisExtent: selfWidth / 4,
                         itemCount: 15,
                         itemBuilder: (BuildContext context, int index) {

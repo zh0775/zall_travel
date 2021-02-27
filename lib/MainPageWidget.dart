@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zall_travel/Destination/Destination.dart';
+
 import 'package:zall_travel/Home/Home.dart';
-import 'package:zall_travel/Journey/Journey.dart';
+
+import 'package:zall_travel/Wallet/Wallet.dart';
 import 'package:zall_travel/tabbar.dart';
 
 import 'Message/Message.dart';
@@ -22,17 +23,34 @@ class _MainPageWidgetState extends State<MainPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _tabbarIndex,
-        children: [Home(), Destination(), Message(), Journey(), Mine()],
+      body: Stack(
+        overflow: Overflow.visible,
+        children: [
+          Positioned(
+              top: 0,
+              right: 0,
+              left: 0,
+              bottom: 0,
+              child: IndexedStack(
+                index: _tabbarIndex,
+                children: [Home(), Wallet(), Message(), Mine()],
+              )),
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            height: 55,
+            child: JMTabBar((index) {
+              // indexClick();
+              setState(() {
+                _tabbarIndex = index;
+              });
+              // _tabbarIndex = index;
+            }),
+          )
+        ],
       ),
-      bottomNavigationBar: JMTabBar((index) {
-        // indexClick();
-        setState(() {
-          _tabbarIndex = index;
-        });
-        // _tabbarIndex = index;
-      }),
+      // bottomNavigationBar:
     );
   }
 }

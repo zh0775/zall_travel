@@ -340,7 +340,7 @@ class _TravelDetailState extends State<TravelDetail> {
                               height: 40,
                               alignment: Alignment.center,
                               child: Text(
-                                '加入购物车',
+                                '先游后付',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
