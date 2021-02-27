@@ -41,8 +41,11 @@ class _HomeCellState extends State<HomeCell> {
     margin = widthScale * 4;
     selfWidth = SizeConfig.screenWidth - margin * 2;
     return GestureDetector(
-      onTap: (){
-        push(TravelVideoView(dataList: widget.dataList ?? [], dataIndex: widget.dataIndex), context);
+      onTap: () {
+        push(
+            TravelVideoView(
+                dataList: widget.dataList ?? [], dataIndex: widget.dataIndex),
+            context);
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -103,8 +106,9 @@ class _HomeCellState extends State<HomeCell> {
                                       ),
                                       widget.userHead != null
                                           ? ClipRRect(
-                                              borderRadius: BorderRadius.circular(
-                                                  widthScale * 5 / 2),
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      widthScale * 5 / 2),
                                               child: Image.asset(
                                                 'assets/images/home/${widget.userHead}',
                                                 height: widthScale * 5,

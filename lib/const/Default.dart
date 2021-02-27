@@ -11,7 +11,7 @@ enum Sex { boy, girl }
 typedef IndexClick = Function();
 
 // const Color jm_appTheme = Color.fromRGBO(230, 184, 92, 1);
-const Color jm_appTheme = Colors.lightBlue;
+const Color jm_appTheme = Color(0xfffecc2f);
 const Color jm_appTheme_disable = Color.fromRGBO(230, 184, 92, 0.6);
 const Color jm_appTheme_splash = Color.fromRGBO(230, 184, 92, 0.2);
 const Color jm_line_color = Color(0xFFF0F2F5);
@@ -328,16 +328,21 @@ class JMline extends StatelessWidget {
   final double width;
   final double height;
   final double margin;
+  final Color color;
 
   const JMline(
-      {@required this.width, @required this.height, this.margin = 0, Key key})
+      {@required this.width,
+      @required this.height,
+      this.margin = 0,
+      Key key,
+      this.color = jm_line_color})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: height,
-      color: jm_line_color,
+      color: color,
       // color: Colors.red,
       margin: EdgeInsets.only(left: margin),
     );

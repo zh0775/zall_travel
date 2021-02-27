@@ -295,42 +295,6 @@ class _HomeState extends State<Home> {
                             dataList: dataList,
                             dataIndex: index,
                           );
-                          // index.isEven
-
-                          // if (index == 0 || index % 3 == 0) {
-                          //   return HomeCell(
-                          //     width: selfWidth / 2,
-                          //     height: 240,
-                          //     image: 'scenic2.jpeg',
-                          //     // needUserBg: true,
-                          //     title: '赤壁市杨洞楼',
-                          //     userHead: 'userHead.jpeg',
-                          //     userName: '我是FIORELADY',
-                          //   );
-                          // } else {
-                          //   return HomeCell(
-                          //     width: selfWidth / 2,
-                          //     height: 190,
-                          //     image: !index.isEven
-                          //         ? 'scenic3.jpeg'
-                          //         : 'scenic1.jpeg',
-                          //     // needUserBg: true,
-                          //     title: '曹禺文化旅游路线',
-                          //     userHead: 'userHead.jpeg',
-                          //     userName: '释迦马天尼',
-                          //     likeCount: 24,
-                          //   );
-                          // }
-
-                          // return HomeCell(
-                          //   width: selfWidth / 2,
-                          //   height: index == 0 || index % 3 == 0 ? 220 : 190,
-                          //   image: 'scenic1.jpeg',
-                          //   // needUserBg: true,
-                          //   title: '探索万亩茶园，聆听大自然的乐章！',
-                          //   userHead: 'userHead.jpeg',
-                          //   userName: '我是FIORELADY',
-                          // );
                         },
                         staggeredTileBuilder: (int index) =>
                             new StaggeredTile.extent(
